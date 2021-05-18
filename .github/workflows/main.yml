@@ -6,7 +6,7 @@ name: CI
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   schedule:
-    - cron: '0 13 * * *'
+    - cron: '20 13 * * *'
   pull_request:
     branches: [ main ]
 
@@ -26,5 +26,7 @@ jobs:
       - uses: actions/checkout@v2
 
       # Runs a single command using the runners shell
-      - name: autoreg_main.py
-        run: python autoreg_main.py
+      - name: test
+        run: chmod +x run.sh kill.sh
+      - name: test2
+        run: ./run.sh
